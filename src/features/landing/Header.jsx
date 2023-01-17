@@ -1,20 +1,42 @@
 import React from 'react'
+import { siteLogo, userIcon } from '../../../constants/assets';
 
 const Header = () => {
     return (
-        <section>
-            Il tuo assistente digitale
+        <section id='header'>
 
-            100% Gratuito
+            <div className='top'>
+                <div className='brand'>
+                    <img 
+                        src={siteLogo}
+                        alt={"Miro"}
+                    />
+                </div>
 
-            Risponde in 1 secondo
 
-            Disponibile 24/7
+                <div className='user'>
+                    <img 
+                        src={userIcon}
+                        alt={"Icona utente"}
+                    />
+                </div>
+            </div>
 
-            100% Gratuito
 
+            <h1 className='grand'>
+                Il tuo assistente digitale
+            </h1>
 
-            inizia
+            <div className='tags'>
+                <span>100% Gratuito</span>
+                <span>Risponde in 1 secondo</span>
+                <span>Disponibile 24/7</span>
+                <span>100% Gratuito</span>
+            </div>
+
+            <button>
+                inizia
+            </button>
         </section>
     )
 }

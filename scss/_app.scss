@@ -6,6 +6,8 @@
 * {
     box-sizing: border-box;
     font-family: $font-fm;
+
+    transition: all 0.7s ease;
 }
 
 body {
@@ -39,5 +41,46 @@ body {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+}
+
+section{
+    margin: 3rem;
+}
+
+section#header{
+    
+    .top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .brand{
+            width: 150px;
+        }
+
+        .user{
+            width: 30px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+    section {
+        margin-inline: 1.5rem;
+
+        &#header {
+        
+            .top {
+                .brand {
+                    width: 120px;
+                }
+            }
+        }
     }
 }
