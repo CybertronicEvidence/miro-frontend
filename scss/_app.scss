@@ -46,6 +46,7 @@ body {
 
 section{
     margin: 3rem;
+    margin-inline: 7rem;
 }
 
 section#header{
@@ -67,6 +68,11 @@ section#header{
             width: 100%;
             height: auto;
         }
+    }
+
+    .grand{
+        color: $primary2;
+        font-size: 4rem;
     }
 }
 
