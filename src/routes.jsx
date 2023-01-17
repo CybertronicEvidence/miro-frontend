@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import ErrorStates from "./errors/ErrorStates";
-import Landing from "./features/landing";
-import Authentcation from './features/authentication';
-import Chat from "./features/chat/index.jsx";
+// import Landing from "./features/landing";
+// import Authentcation from './features/authentication';
+// import Chat from "./features/chat/index.jsx";
 
 import appUrls from '../constants/urls';
 
@@ -15,19 +15,19 @@ const AppRoutes = ()=>{
 
                 <Route 
                     path={appUrls.home} 
-                    element={<Landing/>}
+                    element={<ErrorStates code={402}/>}
                 />
                 <Route 
                     path={appUrls.chat} 
-                    element={<Chat/>}
+                    element={<ErrorStates code={402}/>}
                 />
                 <Route 
                     path={appUrls.signin} 
-                    element={<Authentcation/>}
+                    element={<ErrorStates code={402}/>}
                 />
                 <Route 
                     path={appUrls.signup} 
-                    element={<Authentcation/>}
+                    element={<ErrorStates code={402}/>}
                 />
                 <Route 
                     path={"*"} 

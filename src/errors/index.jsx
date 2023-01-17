@@ -26,9 +26,7 @@ class ErrorBoundary extends Component {
     render(){
         if(this.state.hasError){
             return (
-                <div className='error__page'>
-                    <ErrorStates code={500}/>
-                </div>
+                <ErrorStates code={500}/>
             )
         }
 

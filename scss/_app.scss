@@ -1,0 +1,43 @@
+// Styles setup
+
+// Using google fonts -- poppins
+@use './variables' as *;
+
+* {
+    box-sizing: border-box;
+    font-family: $font-fm;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+
+    font-size: $base-fs;
+    font-weight: $fw-300;
+
+    background-color: $grey;
+}
+
+
+.error__page{
+    // background-color: red;
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .img {
+        width: 400px;
+        height: 400px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
