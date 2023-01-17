@@ -74,6 +74,14 @@ section#header{
         color: $primary2;
         font-size: 4rem;
     }
+
+    .tags{
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        font-weight: 700;
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (max-width: $mobile-breakpoint) {
