@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { siteLogo, userIcon } from '../../../constants/assets';
 
 const Header = () => {
@@ -9,10 +10,12 @@ const Header = () => {
 
                 <div className='top'>
                     <div className='brand'>
-                        <img 
-                            src={siteLogo}
-                            alt={"Miro"}
-                        />
+                        <Link to={'/'}>
+                            <img 
+                                src={siteLogo}
+                                alt={"Miro"}
+                            />
+                        </Link>
                     </div>
 
 
