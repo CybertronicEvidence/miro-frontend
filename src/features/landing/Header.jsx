@@ -5,38 +5,45 @@ const Header = () => {
     return (
         <section id='header'>
 
-            <div className='top'>
-                <div className='brand'>
-                    <img 
-                        src={siteLogo}
-                        alt={"Miro"}
-                    />
+            <div className='content'>            
+
+                <div className='top'>
+                    <div className='brand'>
+                        <img 
+                            src={siteLogo}
+                            alt={"Miro"}
+                        />
+                    </div>
+
+
+                    <div className='user'>
+                        <img 
+                            src={userIcon}
+                            alt={"Icona utente"}
+                        />
+                    </div>
                 </div>
 
 
-                <div className='user'>
-                    <img 
-                        src={userIcon}
-                        alt={"Icona utente"}
-                    />
+                <h1 className='grand'>
+                    Il tuo assistente digitale
+                </h1>
+
+                <div className='tags'>
+                    <span>100% Gratuito</span>
+                    <span>Risponde in 1 secondo</span>
+                    <span>Disponibile 24/7</span>
+                    <span>100% Gratuito</span>
                 </div>
+
+
+                <div className='buttin'>
+                    <button>
+                        inizia
+                    </button>
+                </div>
+
             </div>
-
-
-            <h1 className='grand'>
-                Il tuo assistente digitale
-            </h1>
-
-            <div className='tags'>
-                <span>100% Gratuito</span>
-                <span>Risponde in 1 secondo</span>
-                <span>Disponibile 24/7</span>
-                <span>100% Gratuito</span>
-            </div>
-
-            <button>
-                inizia
-            </button>
         </section>
     )
 }
