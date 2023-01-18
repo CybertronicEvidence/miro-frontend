@@ -131,19 +131,6 @@ button{
                 }
             }
 
-            &::after {
-                bottom: -10rem;
-                width: 100vw;
-                height: 80%;
-                right: 0;
-
-                // background-color: $primary2;
-                background-position-x: right;
-                background-position-y: bottom;
-                background-size: auto;
-                z-index: -1;
-            }
-
         }
     }
 }
