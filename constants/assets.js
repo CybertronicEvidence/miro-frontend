@@ -1,2 +1,17 @@
-export const viteLogo = "/images/vite.svg"
-export const reactLogo = "/images/react.svg";
+export const siteLogo = "/images/logo.png";
+export const whatsAppLogo = "/images/whatsapp.png";
+export const openaiLogo = "/images/openai.png";
+export const googleLogo = "/images/google.png";
+
+// Icons
+export const userIcon = "/icons/user.png";
+export const questionIcon = "/icons/question_mark.png";
+export const bulbIcon = "/icons/bulb.png";
+export const spiral = "/icons/spiral.png";
+export const arrowIcon = "/icons/arrow.png";
+
+
+// Errors
+export const error402 = "/images/illustrations/402.png";
+export const error404 = "/images/illustrations/404.png";
+export const error500 = "/images/illustrations/500.png";
