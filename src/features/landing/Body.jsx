@@ -1,5 +1,5 @@
 import React from 'react'
-import { bulbIcon, questionIcon, spiral } from '../../../constants/assets';
+import { arrowIcon, bulbIcon, questionIcon, spiral } from '../../../constants/assets';
 
 const Body = () => {
     return (
@@ -19,7 +19,7 @@ const Body = () => {
                 </div>
 
 
-                <div className='mt-4'>
+                <div className='mt-5'>
 
                     <h2>Cosa puoi chiedermi</h2>
 
@@ -85,14 +85,26 @@ fornirti una risposta dettagliata.
                         </article>
                     </div>
                 </div>
+
+
+                <div className='mt-5 cta'>
+                    <div className='imgg'>
+                        <img
+                            src={arrowIcon}
+                            alt={"Aumenta la tua"}
+                        />
+                    </div>
+
+                    <div className='cta-txt'>
+                        <h2>Aumenta la tua produttività del 1000%</h2>
+
+                        <button>
+                            inizia
+                        </button>
+                    </div>
+                    
+                </div>
             </div>
-
-        Aumenta la tua
-produttività del
-1000%
-
-        Inizia
-
         </section>
     )
 }
