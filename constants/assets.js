@@ -1,4 +1,7 @@
 export const siteLogo = "/images/logo.png";
+export const whatsAppLogo = "/images/whatsapp.png";
+export const openaiLogo = "/images/openai.png";
+export const googleLogo = "/images/google.png";
 
 // Icons
 export const userIcon = "/icons/user.png";

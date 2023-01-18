@@ -188,9 +188,25 @@ button{
     }
 }
 
+.img-lists{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    img{
+        max-width: 300px;
+    }
+}
+
+img{
+    max-width: 100%;
+}
 .mt-5{
     margin-top: 8rem;
 }
+
+
+
 @media screen and (max-width: $mobile-breakpoint) {
     h1 {
         font-size: 3rem;
@@ -246,5 +262,22 @@ button{
             }
 
         }
+    }
+
+    .cta {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        gap: 40px;
+
+        &-txt {
+            gap: 20px;
+        }
+    }
+
+    .img-lists {
+        flex-direction: column;
+        gap: 50px;
     }
 }
