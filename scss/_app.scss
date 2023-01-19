@@ -309,7 +309,7 @@ form{
 }
 
 .form-group{
-    margin: 1.5rem .5rem;
+    margin: 1.2rem .5rem;
 
     label{
         font-weight: 500;
@@ -336,6 +336,18 @@ form{
 
         &::placeholder{
             font-size: .75rem;
+        }
+    }
+
+    span{
+        color: darken(tomato, 20%);
+        font-size: .85rem;
+        font-weight: 500;
+        margin-left: .3rem;
+        visibility: hidden;
+
+        &[data-msg = "true"]{
+            visibility:visible;
         }
     }
 }

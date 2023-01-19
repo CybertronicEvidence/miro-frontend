@@ -13,6 +13,7 @@ const Input = ({config}) => {
                 {...rest}
                 autoComplete={"off"}
             />
+            <span data-msg={false}>Error message</span>
         </div>
     )
 }
