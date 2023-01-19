@@ -333,6 +333,10 @@ form{
         &:focus{
             border-color: $primary3;
         }
+
+        &::placeholder{
+            font-size: .75rem;
+        }
     }
 }
 

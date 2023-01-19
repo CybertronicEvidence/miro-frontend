@@ -34,7 +34,7 @@ const CreateAccountFormConfig = {
     confirmPassword:{
         type: 'password',
         required: true,
-        label:'confirm password',
+        label:'Confirm password',
         placeholder: 'Confirm your password'
     }
 }
