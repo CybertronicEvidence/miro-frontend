@@ -1,10 +1,9 @@
-import logo from './logo.svg';
+import { siteLogo as logo } from '../../../constants/assets';
 import './normal.css'
 import './App.css';
 import { useState, useEffect } from 'react'
 
 function App() {
-
   useEffect(() => {
     getEngines();
   }, [])
