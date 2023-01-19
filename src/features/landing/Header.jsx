@@ -20,10 +20,12 @@ const Header = () => {
 
 
                     <div className='user'>
+<Link to="/chat">
                         <img 
                             src={userIcon}
                             alt={"Icona utente"}
                         />
+</Link>
                     </div>
                 </div>
 
