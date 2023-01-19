@@ -12,6 +12,6 @@ export const arrowIcon = "/icons/arrow.png";
 
 
 // Errors
-export const error402 = "/images/illustrations/402.png";
-export const error404 = "/images/illustrations/404.png";
-export const error500 = "/images/illustrations/500.png";
+export const error402 = "/illustrations/402.png";
+export const error404 = "/illustrations/404.png";
+export const error500 = "/illustrations/500.png";
