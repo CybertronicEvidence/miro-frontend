@@ -3,6 +3,11 @@ import './normal.css'
 import './App.css';
 import { useState, useEffect } from 'react'
 
+
+// Read environment variables
+const serverUrl = import.meta.env.VITE_SERVER_URL;
+
+
 function App() {
   useEffect(() => {
     getEngines();
@@ -24,7 +29,7 @@ function App() {
   }
 
   function getEngines() {
-    fetch('http://localhost:3080/models')
+    fetch(`${serverUrl}/models`)
       .then(res => res.json())
       .then(data => {
         // console.log(data.models.data)
