@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { siteLogo, userIcon } from '../../../constants/assets';
 
 const Header = () => {
+const navigate = useNavigate();
     return (
         <section id='header'>
 
@@ -20,12 +21,10 @@ const Header = () => {
 
 
                     <div className='user'>
-<Link to="/chat">
                         <img 
                             src={userIcon}
                             alt={"Icona utente"}
                         />
-</Link>
                     </div>
                 </div>
 
@@ -43,7 +42,7 @@ const Header = () => {
 
 
                 <div className='buttin'>
-                    <button>
+                    <button onClick={()=> navigate('/chat')}>
                         inizia
                     </button>
                 </div>
