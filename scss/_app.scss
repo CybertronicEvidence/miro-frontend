@@ -354,6 +354,10 @@ form{
         &::placeholder{
             font-size: .75rem;
         }
+
+        &:user-invalid{
+            border-color: tomato;
+        }
     }
 
     
