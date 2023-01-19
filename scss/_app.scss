@@ -220,6 +220,26 @@ img{
 }
 
 
+.auth__page{
+    // background-color: red;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &--content{
+        background-color: lighten($color: $grey, $amount: 20%);
+        max-width: 90%;
+        min-height: 300px;
+
+        padding-inline:  2rem;
+        padding-block: 1rem;
+        border-radius: 6px;
+    }
+}
+
 
 @media screen and (max-width: $mobile-breakpoint) {
     h1 {
