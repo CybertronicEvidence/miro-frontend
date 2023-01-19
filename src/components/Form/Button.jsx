@@ -1,9 +1,9 @@
 import React from 'react'
 
-const FormButton = () => {
+const FormButton = ({text}) => {
   return (
     <button>
-        inizia
+        {text || "Continuare"}
     </button>
   )
 }

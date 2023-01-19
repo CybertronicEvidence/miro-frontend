@@ -24,7 +24,7 @@ const Login = () => {
         <Form>
           <Input config={LoginFormConfig.email}/>
           <Input config={LoginFormConfig.password}/>
-          <FormButton/>
+          <FormButton text={"Accedi"}/>
         </Form>
     </Layout>
   )

@@ -25,7 +25,7 @@ const SignUp = () => {
           <Input config={CreateAccountFormConfig.email}/>
           <Input config={CreateAccountFormConfig.password}/>
           <Input config={CreateAccountFormConfig.confirmPassword}/>
-          <FormButton/>
+          <FormButton text={"Registrati"}/>
         </Form>
     </Layout>
   )
