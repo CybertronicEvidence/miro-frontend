@@ -5,20 +5,20 @@ import appUrls from '../../../constants/urls';
 
 const Layout = ({isLogin, children}) => {
 
-    const title = isLogin ? 'Login' : 'Create account';
+    const title = isLogin ? 'Accedi' : 'Crea un account';
     const cta = isLogin ? (
         <>
             <Link to={appUrls.signup}>
-                Create account
-            </Link> instead?
+                Crea un account
+            </Link> invece?
         </>
     )
     :
     (
         <>
             <Link to={appUrls.signin}>
-                Sign in
-            </Link> instead?
+                Accedi
+            </Link> invece?
         </>
     )
 
