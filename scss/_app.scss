@@ -284,7 +284,7 @@ img{
 
 form{
     // background-color: red;
-    padding-block: .5rem;
+    padding-block: .1rem;
     button {
         
         min-width: 200px;
@@ -306,10 +306,27 @@ form{
             // box-shadow: 1px 1px 1px $primary4;
         }
     }
+
+    span, .err {
+        color: darken(tomato, 20%);
+        font-size: .85rem;
+        font-weight: 500;
+        margin-left: .3rem;
+        visibility: hidden;
+
+        &[data-msg="true"] {
+            visibility: visible;
+        }
+    }
+
+    .err.center{
+        display: block;
+        text-align: center;
+    }
 }
 
 .form-group{
-    margin: 1.2rem .5rem;
+    margin: 1rem .5rem;
 
     label{
         font-weight: 500;
@@ -339,17 +356,7 @@ form{
         }
     }
 
-    span{
-        color: darken(tomato, 20%);
-        font-size: .85rem;
-        font-weight: 500;
-        margin-left: .3rem;
-        visibility: hidden;
-
-        &[data-msg = "true"]{
-            visibility:visible;
-        }
-    }
+    
 }
 
 @media screen and (max-width: $mobile-breakpoint) {

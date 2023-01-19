@@ -5,6 +5,7 @@ import FormButton from './Button' ;
 const Form = ({children}) => {
   return (
     <form>
+        <span data-msg={false} className="center err">Error message</span>
         {children}
     </form>
   )
