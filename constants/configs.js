@@ -2,40 +2,41 @@ const LoginFormConfig = {
     email:{
         type: 'email',
         required: true,
-        label:'Email',
-        placeholder: 'Enter your email'
+        label:'E-mail',
+        placeholder: 'Inserisci la tua email'
     },
     password:{
         type: 'password',
         required: true,
-        label:'Password',
-        placeholder: 'Enter your password'
+        label:'Parola d’ordine',
+        placeholder: 'Inserisci la tua password'
     }
 }
+
 const CreateAccountFormConfig = {
     username:{
         type: 'text',
         required: true,
-        label:'Username',
-        placeholder: 'Enter a username'
+        label:'Nome utente',
+        placeholder: 'Inserisci il tuo nome utente'
     },
     email:{
         type: 'email',
         required: true,
-        label:'Email',
-        placeholder: 'Enter an email'
+        label:'E-mail',
+        placeholder: 'Inserisci un indirizzo email'
     },
     password:{
         type: 'password',
         required: true,
-        label:'Password',
-        placeholder: 'Enter your password'
+        label:'Parola d’ordine',
+        placeholder: 'Inserisci la tua password'
     },
     confirmPassword:{
         type: 'password',
         required: true,
-        label:'Confirm password',
-        placeholder: 'Confirm your password'
+        label:'Conferma password',
+        placeholder: 'Conferma la tua password'
     }
 }
 
