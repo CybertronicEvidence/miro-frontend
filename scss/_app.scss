@@ -298,10 +298,12 @@ form{
 
         cursor: pointer;
 
+        // box-shadow: none;
+
 
         &:hover {
             background-color: $primary4;
-            box-shadow: 1px 1px 1px $primary4;
+            // box-shadow: 1px 1px 1px $primary4;
         }
     }
 }
