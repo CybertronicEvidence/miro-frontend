@@ -4,10 +4,9 @@ import FormButton from './Button' ;
 
 const Form = ({children}) => {
   return (
-    <div>
-        Form
+    <form>
         {children}
-    </div>
+    </form>
   )
 }
 

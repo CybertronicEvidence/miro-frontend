@@ -244,7 +244,7 @@ img{
     &--content{
         h4{
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.32rem;
             font-family: 700;
         }
 
@@ -282,6 +282,57 @@ img{
     }
 }
 
+form{
+    // background-color: red;
+    padding-block: .5rem;
+    button {
+        
+        min-width: 200px;
+        padding-block: .5rem;
+        border-radius: .3rem;
+        border-width: 2px;
+        font-size: .97rem;
+
+        margin: 0 auto;
+
+
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: $primary4;
+            box-shadow: 1px 1px 1px $primary4;
+        }
+    }
+}
+
+.form-group{
+    margin: 1.5rem .5rem;
+
+    label{
+        font-weight: 500;
+        font-size: .87rem;
+    }
+
+    input{
+        display: block;
+        width: 100%;
+        padding-block: .7rem;
+        padding-inline-start: 1rem;
+        padding-inline-end: .5rem;
+
+        font-size: .95rem;
+
+        border: 1px solid $grey;
+        outline: none;
+
+        border-radius: .2rem;
+
+        &:focus{
+            border-color: $primary3;
+        }
+    }
+}
 
 @media screen and (max-width: $mobile-breakpoint) {
     h1 {
