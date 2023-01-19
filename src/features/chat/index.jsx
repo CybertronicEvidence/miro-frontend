@@ -5,8 +5,11 @@ import { useState, useEffect } from 'react'
 
 
 // Read environment variables
-const serverUrl = import.meta.env.VITE_SERVER_URL;
-
+let serverUrl = import.meta.env.VITE_SERVER_URL;
+if (!serverUrl){
+console.log("No sevurl");
+serverUrl= 'http://localhost:3080';
+}
 
 function App() {
   useEffect(() => {
