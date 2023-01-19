@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ErrorStates from "./errors/ErrorStates";
 import Landing from "./features/landing";
 // import Authentcation from './features/authentication';
-// import Chat from "./features/chat/index.jsx";
+import Chat from "./features/chat";
 
 import appUrls from '../constants/urls';
 
@@ -19,7 +19,7 @@ const AppRoutes = ()=>{
                 />
                 <Route 
                     path={appUrls.chat} 
-                    element={<ErrorStates code={402}/>}
+                    element={<Chat/>}
                 />
                 <Route 
                     path={appUrls.signin} 
