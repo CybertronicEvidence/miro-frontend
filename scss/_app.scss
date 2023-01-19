@@ -234,9 +234,51 @@ img{
         max-width: 90%;
         min-height: 300px;
 
-        padding-inline:  2rem;
-        padding-block: 1rem;
+        width: 350px;
+
+        padding-inline:  .9rem;
+        padding-block: .3rem;
         border-radius: 6px;
+    }
+
+    &--content{
+        h4{
+            margin: 0;
+            font-size: 1.5rem;
+            font-family: 700;
+        }
+
+        a{
+            color: $primary3;    
+        }
+
+        .header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 500;
+
+            row-gap: 30px;
+            .himg{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:250px;
+                margin: 0;
+            }
+
+            .htxt{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                // background-color: red;
+                
+                width: 100%;
+                span {
+                    font-size: .9rem;
+                }
+            }
+        }
     }
 }
 
