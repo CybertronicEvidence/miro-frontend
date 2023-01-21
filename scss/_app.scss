@@ -130,7 +130,7 @@ section#header{
     }
 }
 
-button{
+button:not(.chat_cta){
     display: block;
     width: 200px;
     padding-block: .9rem;

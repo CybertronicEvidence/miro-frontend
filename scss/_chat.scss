@@ -1,0 +1,116 @@
+@use './variables' as *;
+
+$sideBarWidth: 250px;
+$darkGrey: lighten($color: $dark1, $amount: 30%);
+
+.chat__area{
+
+    aside{
+        background-color: $grey100;
+        outline: 1px solid $darkGrey;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: $sideBarWidth;
+
+        padding-top: 3rem;
+    }
+
+    .chat_content{
+        // background-color: red;
+        margin-left: $sideBarWidth;
+    }
+
+
+    .sessions_content{
+        padding-top: 10px;
+        height: 55%;
+        overflow-y:auto;
+        ul li {
+                // background-color: green;
+            margin-block: .7rem;
+    
+            i {
+                font-size: 1.4rem;
+                // color: $grey100;
+            }
+    
+            display: flex;
+            padding-left: 1rem;
+            padding-block: .45rem;
+            column-gap: 8px;
+            font-weight: 500;
+
+            width: 90%;
+            margin-inline: auto;
+
+            outline: none;
+
+            cursor: pointer;
+
+            &:hover{
+                outline: 1px solid $darkGrey;
+            }
+        }
+    }
+
+
+    & .cta{
+        height: 45%;
+        // background-color: red;
+        border-top: 2px solid $darkGrey;
+
+        display: flex;
+        flex-direction: column;        
+        // row-gap: 2px;
+    }
+
+
+    
+}
+
+.chat_cta {
+    width: 90%;
+    margin: 0 auto;
+    padding-block: .8rem;
+    // padding-inline: .7rem;
+    font-size: .9rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    border: 2px solid $darkGrey;
+
+    background-color: transparent;
+
+    cursor: pointer;
+
+    &:hover{
+        background-color: $grey;
+    }
+
+    span{
+        font-weight: 500;
+    }
+
+
+    i {
+        margin-left: 10px;
+        color: $darkGrey;
+        font-size: 1.2rem;
+    }
+}
+
+ul{
+    list-style: none;
+    
+    padding: 0;
+    transition: all 0.2s ease;
+    li{
+        transition: all 0.2s ease;
+    }
+}
