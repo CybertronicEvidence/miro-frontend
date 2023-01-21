@@ -1,0 +1,21 @@
+@use './variables' as *;
+
+.chat__area{
+    $sideBarWidth: 250px;
+
+    aside{
+        background-color: $grey100;
+        outline: 2px solid darken($color: $grey100, $amount: 10%);
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: $sideBarWidth;
+    }
+
+    .chat_content{
+        // background-color: red;
+        margin-left: $sideBarWidth;
+    }
+}
