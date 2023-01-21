@@ -2,10 +2,17 @@ import React from 'react';
 import Input from './Input';
 import FormButton from './Button' ;
 
-const Form = ({children}) => {
+const Form = ({children,error,handleSubmit}) => {
+  
   return (
-    <form>
-        <span data-msg={false} className="center err">Error message</span>
+    <form onSubmit={handleSubmit}>
+        <span 
+          data-msg={Boolean(error)} 
+          className="center err"
+        >
+          {error}
+        </span>
+
         {children}
     </form>
   )

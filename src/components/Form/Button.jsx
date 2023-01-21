@@ -1,8 +1,8 @@
 import React from 'react'
 
-const FormButton = ({text}) => {
+const FormButton = ({text, type}) => {
   return (
-    <button>
+    <button type={type || 'button'}>
         {text || "Continuare"}
     </button>
   )
