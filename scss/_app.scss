@@ -286,14 +286,13 @@ form{
     // background-color: red;
     padding-block: .1rem;
     button {
-        
         min-width: 200px;
-        padding-block: .5rem;
-        border-radius: .3rem;
-        border-width: 2px;
-        font-size: .97rem;
+        padding-block: .5rem !important;
+        border-radius: .3rem !important;
+        border-width: 2px !important;;
+        font-size: .97rem !important;;
 
-        margin: 0 auto;
+        margin: 0 auto !important;;
 
 
         cursor: pointer;
