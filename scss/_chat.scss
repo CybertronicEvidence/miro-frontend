@@ -1,11 +1,13 @@
 @use './variables' as *;
 
+$sideBarWidth: 250px;
+$darkGrey: darken($color: $grey100, $amount: 10%);
+
 .chat__area{
-    $sideBarWidth: 250px;
 
     aside{
         background-color: $grey100;
-        outline: 2px solid darken($color: $grey100, $amount: 10%);
+        outline: 2px solid $darkGrey;
         height: 100vh;
         position: fixed;
         top: 0;
@@ -17,5 +19,51 @@
     .chat_content{
         // background-color: red;
         margin-left: $sideBarWidth;
+    }
+
+
+    .sessions_content{
+        height: 55%;
+    }
+
+
+    & .cta{
+        height: 45%;
+        // background-color: red;
+        border-top: 2px solid $darkGrey;
+
+        display: flex;
+        flex-direction: column;        
+        // row-gap: 2px;
+    }
+
+
+    
+}
+
+.chat_cta {
+    width: 90%;
+    margin: 0 auto;
+    padding-block: .8rem;
+    // padding-inline: .7rem;
+    font-size: .9rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    border-color: 2px solid $darkGrey;
+
+    cursor: pointer;
+
+    span{
+        font-weight: 500;
+    }
+
+
+    i {
+        margin-left: 10px;
+        color: $darkGrey;
     }
 }
