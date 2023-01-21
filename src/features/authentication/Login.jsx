@@ -8,7 +8,7 @@ import Layout from './Layout';
 
 const Login = () => {
 
-  const context = useContext(AppContext);
+  const {signIn} = useContext(AppContext);
 
   const [formData, setFormData] = useState({});
   const [formError, setFormError] = useState({});
@@ -29,7 +29,22 @@ const Login = () => {
     
     if(e) e.preventDefault();
 
-    console.log("submited", formData);
+    const {email, password } = formData;
+
+    signIn({email, password})
+    .then((error)=>{
+      // If there's response, then it's error
+      if(!error) {
+        console.log("Gone!.")
+        return;
+      }
+
+      setFormError(p=>error);
+    })
+    .catch((error)=>{
+      console.error(error);
+      setFormError(p=>error);
+    });
   }
 
   const handleInputChange = (e)=>{

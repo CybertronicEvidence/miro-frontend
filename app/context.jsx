@@ -53,7 +53,7 @@ export const AppProvider = ({children})=>{
 
                 return null;
             },
-            signIn: (authData)=>{
+            signIn: async (authData)=>{
                 dispatch({
                     type: ACTION_TYPES.updateToken,
                     payload: "sample__dummy--token"
