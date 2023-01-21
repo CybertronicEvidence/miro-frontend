@@ -133,7 +133,7 @@ section#header{
 button{
     display: block;
     width: 200px;
-    padding-block: .5rem;
+    padding-block: .9rem;
     border-radius: 2.3rem;
     border: 4px solid $grey;
     color: $grey;
@@ -220,6 +220,148 @@ img{
 }
 
 
+.auth__page{
+    // background-color: red;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &--content{
+        background-color: lighten($color: $grey, $amount: 20%);
+        max-width: 90%;
+        min-height: 300px;
+
+        width: 360px;
+
+        padding-inline:  .9rem;
+        padding-block: .5rem;
+        border-radius: 6px;
+    }
+
+    &--content{
+        h4{
+            margin: 0;
+            font-size: 1.32rem;
+            font-family: 700;
+        }
+
+        a{
+            color: $primary3;    
+        }
+
+        .header{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 500;
+
+            row-gap: 30px;
+            .himg{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:190px;
+                margin: 0;
+            }
+
+            .htxt{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                // background-color: red;
+                
+                width: 100%;
+                span {
+                    font-size: .9rem;
+                }
+            }
+        }
+    }
+}
+
+form{
+    // background-color: red;
+    padding-block: .1rem;
+    button {
+        
+        min-width: 200px;
+        padding-block: .5rem;
+        border-radius: .3rem;
+        border-width: 2px;
+        font-size: .97rem;
+
+        margin: 0 auto;
+
+
+        cursor: pointer;
+
+        // box-shadow: none;
+
+
+        &:hover {
+            background-color: $primary4;
+            // box-shadow: 1px 1px 1px $primary4;
+        }
+    }
+
+    span, .err {
+        color: darken(tomato, 20%);
+        font-size: .85rem;
+        font-weight: 500;
+        margin-left: .3rem;
+        visibility: hidden;
+
+        &[data-msg="true"] {
+            visibility: visible;
+        }
+    }
+
+    .err.center{
+        display: block;
+        text-align: center;
+    }
+}
+
+.form-group{
+    margin: 1rem .5rem;
+
+    label{
+        font-weight: 500;
+        font-size: .87rem;
+    }
+
+    input{
+        display: block;
+        width: 100%;
+        padding-block: .7rem;
+        padding-inline-start: 1rem;
+        padding-inline-end: .5rem;
+
+        font-size: .95rem;
+
+        border: 1px solid $grey;
+        outline: none;
+
+        border-radius: .2rem;
+
+        &:focus{
+            border-color: $primary3;
+        }
+
+        &::placeholder{
+            font-size: .75rem;
+        }
+
+        &:user-invalid{
+            border-color: tomato;
+        }
+    }
+
+    
+}
 
 @media screen and (max-width: $mobile-breakpoint) {
     h1 {

@@ -1,6 +1,7 @@
 export default {
     'home':'/',
     'chat':'/chat',
-    'signin':'/signin',
-    'signup':'/signup',
+    'auth':'/auth',
+    'signin':'/auth/signin',
+    'signup':'/auth/signup',
 }

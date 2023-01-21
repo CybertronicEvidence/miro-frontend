@@ -1,12 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { siteLogo, userIcon } from '../../../constants/assets';
+import appUrls from '../../../constants/urls';
 
 const Header = () => {
+const navigate = useNavigate();
     return (
         <section id='header'>
 
-            <div className='content'>            
+            <div className='content'>
 
                 <div className='top'>
                     <div className='brand'>
@@ -20,10 +22,12 @@ const Header = () => {
 
 
                     <div className='user'>
-                        <img 
-                            src={userIcon}
-                            alt={"Icona utente"}
-                        />
+                        <Link to={appUrls.signin}>
+                            <img 
+                                src={userIcon}
+                                alt={"Icona utente"}
+                            />
+                        </Link>
                     </div>
                 </div>
 
@@ -41,7 +45,7 @@ const Header = () => {
 
 
                 <div className='buttin'>
-                    <button>
+                    <button onClick={()=> navigate('/chat')}>
                         inizia
                     </button>
                 </div>

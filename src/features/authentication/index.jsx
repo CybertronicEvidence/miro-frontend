@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Login from './Login';
+import SignUp from './Signup';
+import { Outlet } from 'react-router-dom';
 
-const Authentcation = () => {
+const AuthenticationLayout = () => {
   return (
-    <div>Authentcation</div>
+    <div className='auth__page'>
+      <div className='auth__page--content'>
+        <Outlet/>
+      </div>
+    </div>
   )
 }
 
-export default Authentcation;
+export default AuthenticationLayout;
+
+export {Login, SignUp};
