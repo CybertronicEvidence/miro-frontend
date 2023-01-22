@@ -1,4 +1,5 @@
 import React, {createContext, useMemo, useReducer} from 'react';
+import { makeSignInRequest, makeSignUpRequest } from './utils';
 
 const AppContext = createContext();
 
@@ -9,12 +10,10 @@ export default AppContext;
 export const AppProvider = ({children})=>{
     const initialState = {
         user: null,
-        authToken: null,
     }
 
     const ACTION_TYPES = {
         updateData: "UPDATE_DATA",
-        updateToken: "UPDATE_TOKEN"
     }
 
     const reducer = (prev, action)=>{
@@ -29,11 +28,6 @@ export const AppProvider = ({children})=>{
                         ...payload
                     }
                 }
-            case ACTION_TYPES.updateToken:
-                return {
-                    ...prev,
-                    authToken: payload
-                }
             default:
                 return state
         }
@@ -45,18 +39,37 @@ export const AppProvider = ({children})=>{
     const contextData  = useMemo(()=>(
         {
             ...state,
-            signUp: (userData)=>{
-                dispatch({
-                    type: ACTION_TYPES.updateData,
-                    payload: userData
-                });
+            signUp: async (userData)=>{
+
+                const [error] = await makeSignUpRequest(userData);
+
+                if (error){
+                    return error;
+                }
 
                 return null;
             },
             signIn: async (authData)=>{
+
+                const [error, response] = await makeSignInRequest(authData);
+
+                if (error){
+                    return error;
+                }
+
+
+                const {token} = response.data;
+
+                if (!token){
+                    console.error("No Token for authentication user!");
+                    return {
+                        message: "Could not authenticate"
+                    }
+                }
+
                 dispatch({
-                    type: ACTION_TYPES.updateToken,
-                    payload: "sample__dummy--token"
+                    type: ACTION_TYPES.updateData,
+                    payload: response.data
                 });
 
                 return null;
