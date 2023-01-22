@@ -10,7 +10,7 @@ import appUrls from '../../../constants/urls';
 
 const Login = () => {
 
-  const {signIn, user} = useContext(AppContext);
+  const {signIn} = useContext(AppContext);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({});
@@ -59,7 +59,7 @@ const Login = () => {
     });
 
     setLoading(true);
-
+    setFormError(p=>({}));
   }
 
   const handleInputChange = (e)=>{
@@ -76,7 +76,7 @@ const Login = () => {
   return (
     <Layout isLogin={true}>      
         <Form error={formError.message} handleSubmit={handleSubmit}>
-          <Input config={LoginFormConfig.email} error={formError.email} onInputChange={handleInputChange}/>
+          <Input config={LoginFormConfig.username} error={formError.username} onInputChange={handleInputChange}/>
           <Input config={LoginFormConfig.password} error={formError.password} onInputChange={handleInputChange}/>
           <FormButton text={loading ? "Caricamento...":"Accedi"} type={"submit"} disabled={loading}/>
         </Form>

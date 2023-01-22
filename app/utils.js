@@ -41,7 +41,7 @@ export const MakeRequest = async (method="GET", customConfig=null)=>{
 
 export const makeSignUpRequest = async (userData)=>{
 
-    const [response, requestError] = await MakeRequest("POST", {
+    const [requestError, response] = await MakeRequest("POST", {
         data:userData,
         url: `${baseUrl}/auth/register`
     });
@@ -57,7 +57,7 @@ export const makeSignUpRequest = async (userData)=>{
         return [error, null];
     }
 
-    return rest; // status code and data
+    return [null, rest]; // status code and data
 }
 export const makeSignInRequest = async (authData)=>{
 
