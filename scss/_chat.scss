@@ -266,5 +266,22 @@ ul{
             }
     
     
+    }
+
+    .chat_empty {
+
+
+        .desp_container {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            row-gap: 15px;
+
         }
+    }
+
+    .chat_input {
+        width: 95%;
+    }
 }
