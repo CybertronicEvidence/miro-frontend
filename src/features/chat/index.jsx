@@ -24,7 +24,15 @@ const ChatArea = ()=>{
 
                 setShowSideBar(false);
             }}>
-                <EmptyState/>
+
+                <div className="chat_section">
+                    <EmptyState/>
+                </div>
+
+                <div className="chat_input">
+                    <textarea/>
+                    <span><i class="fa-regular fa-paper-plane"></i></span>
+                </div>
             </div>
         </div>
         
