@@ -153,6 +153,14 @@ button:not(.chat_cta){
         background-color: $primary4;
         box-shadow: 1px 1px 1px $primary4;
     }
+
+    &:disabled{
+        opacity: .7;
+        &:hover {
+            background-color: $primary4;
+            box-shadow: none;
+        }
+    }
 }
 
 

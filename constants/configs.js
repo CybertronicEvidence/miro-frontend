@@ -1,6 +1,6 @@
 const LoginFormConfig = {
     email:{
-        type: 'email',
+        type: 'text',
         required: true,
         label:'E-mail',
         placeholder: 'Inserisci la tua email',

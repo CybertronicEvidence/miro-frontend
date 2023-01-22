@@ -51,7 +51,10 @@ export const AppProvider = ({children})=>{
             },
             signIn: async (authData)=>{
 
-                const [error, response] = await makeSignInRequest(authData);
+                const dt = await makeSignInRequest(authData);
+
+                // console.log(dt);
+                const [error, response] = dt
 
                 if (error){
                     return error;

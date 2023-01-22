@@ -20,9 +20,18 @@ export const MakeRequest = async (method="GET", customConfig=null)=>{
     }
 
     try{
-        response = await axios(config);
+        let res = await axios(config);
+        response = res.data
     }catch(err){
-        return [{message: err.message}, null]; // end it here
+
+        let error = {message: err.message};
+
+        if (err.response){ // this is a bad response from server like 400
+            const {error: responseError} = err.response.data;
+            error = responseError;
+        }
+
+        return [error, null]; // end it here
     }
 
     result = [null, response];
@@ -52,7 +61,7 @@ export const makeSignUpRequest = async (userData)=>{
 }
 export const makeSignInRequest = async (authData)=>{
 
-    const [response, requestError] = await MakeRequest("POST", {
+    const [requestError, response] = await MakeRequest("POST", {
         data:authData,
         url: `${baseUrl}/auth/login`
     });
@@ -68,5 +77,5 @@ export const makeSignInRequest = async (authData)=>{
         return [error, null];
     }
 
-    return rest; // status code and data
+    return [null, rest]; // status code and data
 }
