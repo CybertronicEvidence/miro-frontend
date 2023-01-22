@@ -5,6 +5,10 @@ $darkGrey: lighten($color: $dark1, $amount: 30%);
 
 .chat__area{
 
+    .toogler{
+        display: none;
+    }
+
     aside{
         background-color: $grey100;
         outline: 1px solid $darkGrey;
@@ -113,4 +117,35 @@ ul{
     li{
         transition: all 0.2s ease;
     }
+}
+
+
+
+@media screen and (max-width: $mobile-breakpoint) {
+    .chat__area {
+
+        .toogler{
+            display: block;
+            font-size: 1.8rem;
+            color: $dark1;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            cursor: pointer;
+            z-index: 2;
+        }
+            aside{
+                left: -100%;
+
+                &[data-show=true]{
+                    left: 0;
+                }
+            }
+    
+            .chat_content {
+                margin-left: 0;
+            }
+    
+    
+        }
 }

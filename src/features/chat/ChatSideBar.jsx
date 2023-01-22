@@ -2,31 +2,31 @@ import React from 'react';
 
 
 
-const ChatSession = ()=>{
+const ChatSideBar = ({show})=>{
     return (
-        <aside>
+        <aside data-show={show}>
 
             <button className='chat_cta'>
-                <i class="fa-solid fa-plus"></i>
+                <i className="fa-solid fa-plus"></i>
                 <span>New conversation</span>
             </button>
 
             <div className='sessions_content'>
                 <ul>
                     <li>
-                        <i class="fa-regular fa-comment-dots"></i>
+                        <i className="fa-regular fa-comment-dots"></i>
                         A conversion session
                     </li>
                     <li>
-                        <i class="fa-regular fa-comment-dots"></i>
+                        <i className="fa-regular fa-comment-dots"></i>
                         A conversion session
                     </li>
                     <li>
-                        <i class="fa-regular fa-comment-dots"></i>
+                        <i className="fa-regular fa-comment-dots"></i>
                         A conversion session
                     </li>
                     <li>
-                        <i class="fa-regular fa-comment-dots"></i>
+                        <i className="fa-regular fa-comment-dots"></i>
                         A conversion session
                     </li>
                 </ul>
@@ -34,15 +34,15 @@ const ChatSession = ()=>{
 
             <div className="cta">
                 <button className='chat_cta'>
-                    <i class="fa-regular fa-trash-can"></i>
+                    <i className="fa-regular fa-trash-can"></i>
                     <span>Cancella conversazioni</span>
                 </button>
                 <button className='chat_cta'>
-                    <i class="fa-solid fa-crown"></i>
+                    <i className="fa-solid fa-crown"></i>
                     <span>Passa a Pro</span>
                 </button>
                 <button className='chat_cta'>
-                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <i className="fa-solid fa-right-from-bracket"></i>
                     <span>Log out</span>
                 </button>
             </div>
@@ -51,4 +51,4 @@ const ChatSession = ()=>{
 }
 
 
-export default ChatSession;
+export default ChatSideBar;
