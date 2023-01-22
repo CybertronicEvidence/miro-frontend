@@ -35,9 +35,9 @@ const Login = () => {
 
     if (loading) return
 
-    const {email, password } = formData;
+    const {username, password } = formData;
 
-    signIn({username:email, password})
+    signIn({username, password})
     .then((error)=>{
       // If there's response, then it's error
       // error is an object that could contain message
