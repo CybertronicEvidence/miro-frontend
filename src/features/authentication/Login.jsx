@@ -35,9 +35,9 @@ const Login = () => {
 
     if (loading) return
 
-    const {username, password } = formData;
+    const {email, password } = formData;
 
-    signIn({username, password})
+    signIn({email, password})
     .then((error)=>{
       // If there's response, then it's error
       // error is an object that could contain message
@@ -76,7 +76,7 @@ const Login = () => {
   return (
     <Layout isLogin={true}>      
         <Form error={formError.message} handleSubmit={handleSubmit}>
-          <Input config={LoginFormConfig.username} error={formError.username} onInputChange={handleInputChange}/>
+          <Input config={LoginFormConfig.email} error={formError.email} onInputChange={handleInputChange}/>
           <Input config={LoginFormConfig.password} error={formError.password} onInputChange={handleInputChange}/>
           <FormButton text={loading ? "Caricamento...":"Accedi"} type={"submit"} disabled={loading}/>
         </Form>

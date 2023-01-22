@@ -1,10 +1,10 @@
 const LoginFormConfig = {
-    username:{
-        type: 'text',
+    email:{
+        type: 'email',
         required: true,
-        label:'Nome utente',
-        placeholder: 'Inserisci il tuo nome utente',
-        name:'username',
+        label:'E-mail',
+        placeholder: 'Inserisci la tua email',
+        name:'email',
     },
     password:{
         type: 'password',

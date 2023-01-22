@@ -96,8 +96,27 @@ section#header{
         }
 
         .user{
-            width: 30px;
+            // width: 30px;
             cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 10px;
+
+            font-weight: 500;
+            color: $primary1;
+            a{
+                display: block;
+                width: 30px;
+            }
+            span{
+                display: block;
+                width: 6.6rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                // background-color: red;
+            }
         }
 
         img {
