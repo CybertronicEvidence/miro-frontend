@@ -1,8 +1,21 @@
 import React from 'react';
-
-
+import { useContext } from 'react';
+import AppContext from '../../../app/context';
+import { useNavigate } from 'react-router-dom';
+import appUrls from '../../../constants/urls';
 
 const ChatSideBar = ({show})=>{
+
+    const { signOut} = useContext(AppContext);
+    const navigate = useNavigate();
+
+    const handleLogout = async ()=>{
+        await signOut();
+
+        navigate(appUrls.auth);
+
+    }
+
     return (
         <aside data-show={show}>
 
@@ -41,7 +54,7 @@ const ChatSideBar = ({show})=>{
                     <i className="fa-solid fa-crown"></i>
                     <span>Passa a Pro</span>
                 </button>
-                <button className='chat_cta'>
+                <button className='chat_cta' onClick={handleLogout}>
                     <i className="fa-solid fa-right-from-bracket"></i>
                     <span>Log out</span>
                 </button>

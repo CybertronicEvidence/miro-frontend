@@ -8,12 +8,15 @@ AppContext.displayName = "Miro application context"
 export default AppContext;
 
 export const AppProvider = ({children})=>{
+
+    
     const initialState = {
         user: null,
     }
 
     const ACTION_TYPES = {
         updateData: "UPDATE_DATA",
+        clearData: "CLEAR_DATA",
     }
 
     const reducer = (prev, action)=>{
@@ -27,6 +30,11 @@ export const AppProvider = ({children})=>{
                         ...prev.user,
                         ...payload
                     }
+                }
+            case ACTION_TYPES.clearData:
+                return {
+                    ...prev,
+                    user:null,
                 }
             default:
                 return state
@@ -73,6 +81,15 @@ export const AppProvider = ({children})=>{
                 dispatch({
                     type: ACTION_TYPES.updateData,
                     payload: response.data
+                });
+
+                return null;
+            },
+            signOut: async ()=>{
+
+
+                dispatch({
+                    type: ACTION_TYPES.clearData,
                 });
 
                 return null;
