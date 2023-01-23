@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({config}) => {
+const Input = ({config, error, onInputChange}) => {
     const {label, ...rest} = config;
 
     return (
@@ -12,8 +12,9 @@ const Input = ({config}) => {
             <input
                 {...rest}
                 autoComplete={"off"}
+                onChange={onInputChange}
             />
-            <span data-msg={false}></span>
+            <span data-msg={Boolean(error)}>{error}</span>
         </div>
     )
 }

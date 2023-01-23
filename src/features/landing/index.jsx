@@ -15,7 +15,7 @@ const Landing = () => {
             document.title = normalTitle;
         }
 
-    });
+    },[]);
 
     return (
         <>
