@@ -21,6 +21,7 @@ const ChatArea = () => {
     document.title = `Chiacchierare | ${normalTitle}`;
 
     const input = document.getElementById("chat_input");
+    const sendBtn = document.getElementById("send_message");
 
     input.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
@@ -33,6 +34,16 @@ const ChatArea = () => {
         setMessages((p) => [...p, { message: value }]);
         e.target.textContent = "";
       }
+    });
+
+    sendBtn.addEventListener("click", (e) => {
+      const value = input.textContent;
+
+      if (!value) return;
+
+      // console.log(value);
+      setMessages((p) => [...p, { message: value }]);
+      input.textContent = "";
     });
 
     return () => {
@@ -84,7 +95,7 @@ const ChatArea = () => {
               id="chat_input"
             ></span>
 
-            <span>
+            <span id="send_message">
               <i className="fa-regular fa-paper-plane"></i>
             </span>
           </div>
