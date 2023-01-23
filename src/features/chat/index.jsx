@@ -6,7 +6,7 @@ import EmptyState from './EmptyState';
 
 const ChatArea = ()=>{
     const [showSideBar, setShowSideBar] = useState(false);
-    const [verifyAuth, setVerifyAuth] = useState(false);
+    const [verifyAuth, setVerifyAuth] = useState(true);
 
 
     useEffect(()=>{
@@ -19,12 +19,12 @@ const ChatArea = ()=>{
             document.title = normalTitle;
         }
 
-    });
+    }, []);
 
     return (
         <>
             {
-                verifyAuth && <CheckAuthModal onAuth={()=>setVerifyAuth(true)}/>
+                verifyAuth && <CheckAuthModal onAuth={()=>setVerifyAuth(false)}/>
             }
 
             <div className='chat__area'>
