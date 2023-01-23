@@ -1,14 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import AppContext from "../../../app/context";
+import { makeBotRequest } from "../../../app/utils";
 import { userIcon, gptIcon } from "../../../constants/assets";
 
-const ChatMessageItem = ({ ai, message }) => {
+const ChatMessageItem = ({ ai, message: userMessage }) => {
+  const [botResponse, setBotReponse] = useState(ai ? "..." : userMessage);
+
+  const { user } = useContext(AppContext);
+
+  const handleFetchBotResponse = async () => {
+    if (!ai) return;
+
+    const [error, res] = await makeBotRequest(userMessage, user?.token);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    const { message } = res.data;
+
+    setBotReponse(() => message);
+  };
+
+  useEffect(() => {
+    handleFetchBotResponse();
+  }, [botResponse]);
+
   return (
     <div className="message-item">
       <span className="icon">
         <img src={ai ? gptIcon : userIcon} alt="icon" />
       </span>
 
-      <p>{message}</p>
+      <p>{botResponse}</p>
     </div>
   );
 };

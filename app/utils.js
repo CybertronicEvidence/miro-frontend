@@ -80,10 +80,28 @@ export const makeSignInRequest = async (authData) => {
     return [null, rest]; // status code and data
 }
 
+export const makeBotRequest = async (message, token) => {
 
-export function calcHeight(value) {
-    let numberOfLineBreaks = (value.match(/\n/g) || []).length;
-    // min-height + lines x line-height + padding + border
-    let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2;
-    return newHeight;
+    const [requestError, response] = await MakeRequest("POST", {
+        data: { message },
+        url: `${baseUrl}/chat`,
+        header: {
+            "token": `Bearer ${token}`
+        }
+    });
+
+    if (requestError) {
+        return [requestError, null];
+    }
+
+    console.log([requestError, response])
+
+
+    const { error, ...rest } = response;
+
+    if (error) {
+        return [error, null];
+    }
+
+    return [null, rest]; // status code and data
 }
