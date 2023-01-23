@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { userIcon, gptIcon } from "../../../constants/assets";
 
 const ChatMessageItem = ({ ai, message }) => {
@@ -13,11 +13,11 @@ const ChatMessageItem = ({ ai, message }) => {
   );
 };
 
-const ChatMessage = () => {
+const ChatMessage = ({ message }) => {
   //
   return (
     <div className="chat_messages">
-      <ChatMessageItem message={"User message"} />
+      <ChatMessageItem message={message} />
       <ChatMessageItem ai={true} message={"AI message"} />
     </div>
   );

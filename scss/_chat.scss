@@ -243,7 +243,7 @@ ul {
     display: flex;
     align-items: flex-start;
     column-gap: 20px;
-    border: 1px solid $darkGrey;
+    border-bottom: 1px solid $darkGrey;
     border-top: none;
     padding-inline: 8rem;
     padding-block: 0.6rem;
@@ -315,5 +315,15 @@ ul {
 
   .chat_input {
     width: 95%;
+    .textarea {
+      // background-color: red;
+      width: 90%;
+    }
+  }
+
+  .chat_messages {
+    .message-item {
+      padding-inline: 1rem;
+    }
   }
 }
