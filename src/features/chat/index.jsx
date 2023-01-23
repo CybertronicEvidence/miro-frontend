@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { calcHeight } from "../../../app/utils";
 import { CheckAuthModal } from "../../components/Modal";
 import ChatMessage from "./ChatMessage";
 import ChatSideBar from "./ChatSideBar";
