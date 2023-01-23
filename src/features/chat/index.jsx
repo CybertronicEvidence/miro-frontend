@@ -53,7 +53,10 @@ const ChatArea = () => {
           )}
         </span>
 
-        <ChatSideBar show={showSideBar} />
+        <ChatSideBar
+          show={showSideBar}
+          clearChat={() => setMessages((p) => [])}
+        />
 
         <div
           className="chat_content"
