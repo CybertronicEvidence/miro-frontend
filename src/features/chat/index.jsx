@@ -1,40 +1,49 @@
 import React from 'react';
 import { useState } from 'react';
+import Modal, { CheckAuthModal } from '../../components/Modal';
 import ChatSideBar from './ChatSideBar';
 import EmptyState from './EmptyState';
 
 
 const ChatArea = ()=>{
     const [showSideBar, setShowSideBar] = useState(false);
+    const [verifyAuth, setVerifyAuth] = useState(false);
+
     return (
-        <div className='chat__area'>
-            <span className="toogler" onClick={()=>setShowSideBar(p=>!p)}>
-                {
-                    showSideBar ? 
-                    <i class="fa-solid fa-xmark"></i>
-                    :
-                    <i className="fa-solid fa-bars"></i>
-                }
-            </span>
+        <>
+            {
+                verifyAuth && <CheckAuthModal onAuth={()=>setVerifyAuth(true)}/>
+            }
 
-            <ChatSideBar show={showSideBar}/>
-            
-            <div className='chat_content' onClick={()=>{
-                if (!showSideBar) return
+            <div className='chat__area'>
+                <span className="toogler" onClick={()=>setShowSideBar(p=>!p)}>
+                    {
+                        showSideBar ? 
+                        <i className="fa-solid fa-xmark"></i>
+                        :
+                        <i className="fa-solid fa-bars"></i>
+                    }
+                </span>
 
-                setShowSideBar(false);
-            }}>
+                <ChatSideBar show={showSideBar}/>
+                
+                <div className='chat_content' onClick={()=>{
+                    if (!showSideBar) return
 
-                <div className="chat_section">
-                    <EmptyState/>
-                </div>
+                    setShowSideBar(false);
+                }}>
 
-                <div className="chat_input">
-                    <textarea/>
-                    <span><i class="fa-regular fa-paper-plane"></i></span>
+                    <div className="chat_section">
+                        <EmptyState/>
+                    </div>
+
+                    <div className="chat_input">
+                        <textarea/>
+                        <span><i className="fa-regular fa-paper-plane"></i></span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
         
     )
 }
