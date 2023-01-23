@@ -2,14 +2,14 @@
 import axios from "axios"
 
 let serverUrl = import.meta.env.VITE_SERVER_URL;
-if (!serverUrl){
+if (!serverUrl) {
     console.log("No sevurl");
-    serverUrl= 'http://localhost:3080';
+    serverUrl = 'http://localhost:3080';
 }
 
 const baseUrl = `${serverUrl}/api`;
 
-export const MakeRequest = async (method="GET", customConfig=null)=>{
+export const MakeRequest = async (method = "GET", customConfig = null) => {
     let result = [null, null];
     let response;
 
@@ -19,15 +19,15 @@ export const MakeRequest = async (method="GET", customConfig=null)=>{
         ...customConfig
     }
 
-    try{
+    try {
         let res = await axios(config);
         response = res.data
-    }catch(err){
+    } catch (err) {
 
-        let error = {message: err.message};
+        let error = { message: err.message };
 
-        if (err.response){ // this is a bad response from server like 400
-            const {error: responseError} = err.response.data;
+        if (err.response) { // this is a bad response from server like 400
+            const { error: responseError } = err.response.data;
             error = responseError;
         }
 
@@ -39,43 +39,51 @@ export const MakeRequest = async (method="GET", customConfig=null)=>{
 }
 
 
-export const makeSignUpRequest = async (userData)=>{
+export const makeSignUpRequest = async (userData) => {
 
     const [requestError, response] = await MakeRequest("POST", {
-        data:userData,
+        data: userData,
         url: `${baseUrl}/auth/register`
     });
 
-    if (requestError){
+    if (requestError) {
         return [requestError, null];
     }
 
 
-    const {error, ...rest} = response;
+    const { error, ...rest } = response;
 
-    if (error){
+    if (error) {
         return [error, null];
     }
 
     return [null, rest]; // status code and data
 }
-export const makeSignInRequest = async (authData)=>{
+export const makeSignInRequest = async (authData) => {
 
     const [requestError, response] = await MakeRequest("POST", {
-        data:authData,
+        data: authData,
         url: `${baseUrl}/auth/login`
     });
 
-    if (requestError){
+    if (requestError) {
         return [requestError, null];
     }
 
 
-    const {error, ...rest} = response;
+    const { error, ...rest } = response;
 
-    if (error){
+    if (error) {
         return [error, null];
     }
 
     return [null, rest]; // status code and data
+}
+
+
+export function calcHeight(value) {
+    let numberOfLineBreaks = (value.match(/\n/g) || []).length;
+    // min-height + lines x line-height + padding + border
+    let newHeight = 20 + numberOfLineBreaks * 20 + 12 + 2;
+    return newHeight;
 }

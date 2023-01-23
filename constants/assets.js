@@ -5,6 +5,7 @@ export const googleLogo = "/images/google.png";
 
 // Icons
 export const userIcon = "/icons/user.png";
+export const gptIcon = "/icons/chatgpt.svg";
 export const questionIcon = "/icons/question_mark.png";
 export const bulbIcon = "/icons/bulb.png";
 export const spiral = "/icons/spiral.png";
