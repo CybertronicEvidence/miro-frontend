@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Modal, { CheckAuthModal } from "../../components/Modal";
+import { calcHeight } from "../../../app/utils";
+import { CheckAuthModal } from "../../components/Modal";
 import ChatMessage from "./ChatMessage";
 import ChatSideBar from "./ChatSideBar";
 import EmptyState from "./EmptyState";
@@ -48,7 +49,8 @@ const ChatArea = () => {
           </div>
 
           <div className="chat_input">
-            <textarea />
+            <span className="textarea" role="textbox" contentEditable></span>
+
             <span>
               <i className="fa-regular fa-paper-plane"></i>
             </span>
