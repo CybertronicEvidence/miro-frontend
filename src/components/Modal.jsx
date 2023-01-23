@@ -68,16 +68,16 @@ export const LogoutModal = ({loggingOut,dismiss})=>{
     return (
         <Modal backgroundClick={()=>dismiss()}>
             <div className="authChecker">
-                <h5>Do you want to logout?</h5>
+                <h5>Vuoi effettuare il logout</h5>
 
                 <div className="actions">
                     <FormButton 
-                        text={"Cancel"}
+                        text={"Annulla"}
                         onClick={()=>dismiss()}
                         className="sm-button"
                     />
                     <FormButton 
-                        text={"Log out"}
+                        text={"Esci"}
                         onClick={()=>signOutUser()}
                         className="sm-button"
                     />
