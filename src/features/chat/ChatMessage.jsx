@@ -1,23 +1,24 @@
 import React from "react";
 import { userIcon, gptIcon } from "../../../constants/assets";
 
-const ChatMessageItem = ({ ai }) => {
+const ChatMessageItem = ({ ai, message }) => {
   return (
     <div className="message-item">
       <span className="icon">
         <img src={ai ? gptIcon : userIcon} alt="icon" />
       </span>
 
-      <p>Chat Message</p>
+      <p>{message}</p>
     </div>
   );
 };
 
 const ChatMessage = () => {
+  //
   return (
     <div className="chat_messages">
-      <ChatMessageItem />
-      <ChatMessageItem ai={true} />
+      <ChatMessageItem message={"User message"} />
+      <ChatMessageItem ai={true} message={"AI message"} />
     </div>
   );
 };
