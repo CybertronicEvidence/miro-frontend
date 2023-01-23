@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import Modal, { CheckAuthModal } from '../../components/Modal';
 import ChatSideBar from './ChatSideBar';
 import EmptyState from './EmptyState';
@@ -8,6 +7,19 @@ import EmptyState from './EmptyState';
 const ChatArea = ()=>{
     const [showSideBar, setShowSideBar] = useState(false);
     const [verifyAuth, setVerifyAuth] = useState(false);
+
+
+    useEffect(()=>{
+        const normalTitle = document.title;
+
+        // Update title
+        document.title = `Chiacchierare | ${normalTitle}`;
+
+        return ()=>{
+            document.title = normalTitle;
+        }
+
+    });
 
     return (
         <>
