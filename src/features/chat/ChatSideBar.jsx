@@ -23,7 +23,7 @@ const ChatSideBar = ({ show, clearChat }) => {
 
       <div className="sessions_content">
         <ul>
-          <li>
+          {/* <li>
             <i className="fa-regular fa-comment-dots"></i>A conversion session
           </li>
           <li>
@@ -34,7 +34,7 @@ const ChatSideBar = ({ show, clearChat }) => {
           </li>
           <li>
             <i className="fa-regular fa-comment-dots"></i>A conversion session
-          </li>
+          </li> */}
         </ul>
       </div>
 
