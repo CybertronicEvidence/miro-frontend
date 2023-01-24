@@ -7,11 +7,32 @@ import EmptyState from "./EmptyState";
 const ChatArea = () => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [verifyAuth, setVerifyAuth] = useState(true);
-  const [messages, setMessages] = useState([
-    {
-      message: "Hello world",
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
+
+  const updateMessages = (data)=>{
+    const {id, message} = data;
+
+    if (!id){ // fresh message
+      return setMessages((p) => (
+        [
+          ...p, 
+          { 
+            id: new Date().getTime(),
+            message, 
+            responded:false
+          }
+        ]
+      ));
+    }
+
+    return setMessages((p) =>(
+      p.map(e=>{
+          if (e.id === id) return {...e, ...data}
+          return e;
+        })  
+    ));
+    
+  }
 
   useEffect(() => {
     const normalTitle = document.title;
@@ -19,8 +40,15 @@ const ChatArea = () => {
     // Update title
     document.title = `Chiacchierare | ${normalTitle}`;
 
+    return () => {
+      document.title = normalTitle;
+    };
+  },[]);
+
+  useEffect(()=>{
     const input = document.getElementById("chat_input");
     const sendBtn = document.getElementById("send_message");
+    const chatSection = document.getElementById("chatSection");
 
     input.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
@@ -29,8 +57,7 @@ const ChatArea = () => {
 
         if (!value) return;
 
-        // console.log(value);
-        setMessages((p) => [...p, { message: value }]);
+        updateMessages({message:value})
         e.target.textContent = "";
       }
     });
@@ -40,14 +67,9 @@ const ChatArea = () => {
 
       if (!value) return;
 
-      // console.log(value);
-      setMessages((p) => [...p, { message: value }]);
+      updateMessages({message:value})
       input.textContent = "";
     });
-
-    return () => {
-      document.title = normalTitle;
-    };
   });
 
   return (
@@ -76,12 +98,12 @@ const ChatArea = () => {
             setShowSideBar(false);
           }}
         >
-          <div className="chat_section">
+          <div className="chat_section" id="chatSection">
             {messages.length < 1 ? (
               <EmptyState />
             ) : (
-              messages.map((data, i) => (
-                <ChatMessage message={data.message} key={i} />
+              messages.map((each, i) => (
+                <ChatMessage data={each} key={i} hasResponded={updateMessages} />
               ))
             )}
           </div>

@@ -85,7 +85,7 @@ export const makeBotRequest = async (message, token) => {
     const [requestError, response] = await MakeRequest("POST", {
         data: { message },
         url: `${baseUrl}/chat`,
-        header: {
+        headers: {
             "token": `Bearer ${token}`
         }
     });
@@ -93,8 +93,6 @@ export const makeBotRequest = async (message, token) => {
     if (requestError) {
         return [requestError, null];
     }
-
-    console.log([requestError, response])
 
 
     const { error, ...rest } = response;
