@@ -3,33 +3,7 @@ import AppContext from "../../../app/context";
 import { makeBotRequest } from "../../../app/utils";
 import { userIcon, gptIcon } from "../../../constants/assets";
 
-const ChatMessageItem = ({ ai, message: userMessage, responded, hasResponded }) => {
-  const [botResponse, setBotReponse] = useState(ai ? "..." : userMessage);
-
-  const { user } = useContext(AppContext);
-
-  const handleFetchBotResponse = async () => {
-    if (!ai) return;
-
-    if (responded) return
-
-    const [error, res] = await makeBotRequest(userMessage, user?.token);
-
-    if (error) {
-      console.error(error);
-      return;
-    }
-
-    const { message } = res.data;
-
-    setBotReponse(() => message);
-    hasResponded()
-
-  };
-
-  useEffect(() => {
-    handleFetchBotResponse();
-  }, [botResponse]);
+const ChatMessageItem = ({ ai, message:userMessage}) => {
 
   return (
     <div className="message-item">
@@ -37,17 +11,48 @@ const ChatMessageItem = ({ ai, message: userMessage, responded, hasResponded }) 
         <img src={ai ? gptIcon : userIcon} alt="icon" />
       </span>
 
-      <p>{botResponse}</p>
+      <p>{userMessage}</p>
     </div>
   );
 };
 
-const ChatMessage = ({ message, hasResponded }) => {
-  //
+const ChatMessage = ({ data, hasResponded }) => {
+  const { user } = useContext(AppContext);
+  const {message, responded} = data;
+
+  const [response, setResponse] = useState("...");
+
+
+  const handleFetchBotResponse = async () => {
+
+    if (responded) return
+
+    const [error, res] = await makeBotRequest(message, user?.token);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    const { message:botResponse } = res.data;
+
+    setResponse(() => botResponse);
+    hasResponded({
+      ...data,
+      responded:true
+    });
+
+  };
+
+  useEffect(() => {
+    handleFetchBotResponse();
+  }, [response]);
+
+  
   return (
     <div className="chat_messages">
-      <ChatMessageItem {...message} />
-      <ChatMessageItem ai={true} {...message} hasResponded={hasResponded} />
+      <ChatMessageItem message={message} />
+      <ChatMessageItem ai={true} message={response} />
     </div>
   );
 };

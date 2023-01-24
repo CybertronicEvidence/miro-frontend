@@ -48,6 +48,7 @@ const ChatArea = () => {
   useEffect(()=>{
     const input = document.getElementById("chat_input");
     const sendBtn = document.getElementById("send_message");
+    const chatSection = document.getElementById("chatSection");
 
     input.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
@@ -60,6 +61,8 @@ const ChatArea = () => {
         // setMessages((p) => [...p, { message: value, id: new Date().getTime(), responded:false}]);
         updateMessages({message:value})
         e.target.textContent = "";
+        chatSection.scrollTop = chatSection.scrollHeight;
+        console.log(chatSection)
       }
     });
 
@@ -72,6 +75,7 @@ const ChatArea = () => {
       // setMessages((p) => [...p, { message: value }]);
       updateMessages({message:value})
       input.textContent = "";
+      chatSection.scrollTop = chatSection.scrollHeight;
     });
   });
 
@@ -101,12 +105,12 @@ const ChatArea = () => {
             setShowSideBar(false);
           }}
         >
-          <div className="chat_section">
+          <div className="chat_section" id="chatSection">
             {messages.length < 1 ? (
               <EmptyState />
             ) : (
-              messages.map((data, i) => (
-                <ChatMessage message={data} key={i} hasResponded={()=>updateMessages({...data, responded:true})} />
+              messages.map((each, i) => (
+                <ChatMessage data={each} key={i} hasResponded={updateMessages} />
               ))
             )}
           </div>
