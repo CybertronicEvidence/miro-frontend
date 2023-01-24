@@ -7,11 +7,32 @@ import EmptyState from "./EmptyState";
 const ChatArea = () => {
   const [showSideBar, setShowSideBar] = useState(false);
   const [verifyAuth, setVerifyAuth] = useState(true);
-  const [messages, setMessages] = useState([
-    {
-      message: "Hello world",
-    },
-  ]);
+  const [messages, setMessages] = useState([]);
+
+  const updateMessages = (data)=>{
+    const {id, message} = data;
+
+    if (!id){ // fresh message
+      return setMessages((p) => (
+        [
+          ...p, 
+          { 
+            id: new Date().getTime(),
+            message, 
+            responded:false
+          }
+        ]
+      ));
+    }
+
+    return setMessages((p) =>(
+      p.map(e=>{
+          if (e.id === id) return {...e, ...data}
+          return e;
+        })  
+    ));
+    
+  }
 
   useEffect(() => {
     const normalTitle = document.title;
@@ -19,6 +40,12 @@ const ChatArea = () => {
     // Update title
     document.title = `Chiacchierare | ${normalTitle}`;
 
+    return () => {
+      document.title = normalTitle;
+    };
+  },[]);
+
+  useEffect(()=>{
     const input = document.getElementById("chat_input");
     const sendBtn = document.getElementById("send_message");
 
@@ -30,7 +57,8 @@ const ChatArea = () => {
         if (!value) return;
 
         // console.log(value);
-        setMessages((p) => [...p, { message: value }]);
+        // setMessages((p) => [...p, { message: value, id: new Date().getTime(), responded:false}]);
+        updateMessages({message:value})
         e.target.textContent = "";
       }
     });
@@ -41,13 +69,10 @@ const ChatArea = () => {
       if (!value) return;
 
       // console.log(value);
-      setMessages((p) => [...p, { message: value }]);
+      // setMessages((p) => [...p, { message: value }]);
+      updateMessages({message:value})
       input.textContent = "";
     });
-
-    return () => {
-      document.title = normalTitle;
-    };
   });
 
   return (
@@ -81,7 +106,7 @@ const ChatArea = () => {
               <EmptyState />
             ) : (
               messages.map((data, i) => (
-                <ChatMessage message={data.message} key={i} />
+                <ChatMessage message={data} key={i} hasResponded={()=>updateMessages({...data, responded:true})} />
               ))
             )}
           </div>

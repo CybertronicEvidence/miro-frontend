@@ -3,13 +3,15 @@ import AppContext from "../../../app/context";
 import { makeBotRequest } from "../../../app/utils";
 import { userIcon, gptIcon } from "../../../constants/assets";
 
-const ChatMessageItem = ({ ai, message: userMessage }) => {
+const ChatMessageItem = ({ ai, message: userMessage, responded, hasResponded }) => {
   const [botResponse, setBotReponse] = useState(ai ? "..." : userMessage);
 
   const { user } = useContext(AppContext);
 
   const handleFetchBotResponse = async () => {
     if (!ai) return;
+
+    if (responded) return
 
     const [error, res] = await makeBotRequest(userMessage, user?.token);
 
@@ -21,6 +23,8 @@ const ChatMessageItem = ({ ai, message: userMessage }) => {
     const { message } = res.data;
 
     setBotReponse(() => message);
+    hasResponded()
+
   };
 
   useEffect(() => {
@@ -38,14 +42,14 @@ const ChatMessageItem = ({ ai, message: userMessage }) => {
   );
 };
 
-const ChatMessage = ({ message }) => {
+const ChatMessage = ({ message, hasResponded }) => {
   //
   return (
     <div className="chat_messages">
-      <ChatMessageItem message={message} />
-      <ChatMessageItem ai={true} message={"AI message"} />
+      <ChatMessageItem {...message} />
+      <ChatMessageItem ai={true} {...message} hasResponded={hasResponded} />
     </div>
   );
 };
 
-export default ChatMessage;
+export default React.memo(ChatMessage);
