@@ -57,12 +57,8 @@ const ChatArea = () => {
 
         if (!value) return;
 
-        // console.log(value);
-        // setMessages((p) => [...p, { message: value, id: new Date().getTime(), responded:false}]);
         updateMessages({message:value})
         e.target.textContent = "";
-        chatSection.scrollTop = chatSection.scrollHeight;
-        console.log(chatSection)
       }
     });
 
@@ -71,11 +67,8 @@ const ChatArea = () => {
 
       if (!value) return;
 
-      // console.log(value);
-      // setMessages((p) => [...p, { message: value }]);
       updateMessages({message:value})
       input.textContent = "";
-      chatSection.scrollTop = chatSection.scrollHeight;
     });
   });
 
